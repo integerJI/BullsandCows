@@ -9,17 +9,31 @@
 {% for game in game.game.all %}
 {{game.game_user}}
 {{game.game_num}}
+{% for gametry in game.gameTry.all %}
+<br>
+ㄴ{{gametry.try_game_user}}
+{{gametry.try_game_num}}
+{% endfor %}
+
+<br>
+<hr>
+<form action="{% url 'gametrynum' game.id %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="try_game_num" id="try_game_num">
+    <button type="submit">입력</button>
+</form>
+<hr>
 <br>
 {% endfor %}
 
 <br>
-
+<hr>
 <form action="{% url 'gamenum' game.id %}" method="POST">
     {% csrf_token %}
     <input type="text" name="game_num" id="game_num">
     <button type="submit">입력</button>
 </form>
-
+<hr>
 <br>
 <a href="{% url 'index' %}">돌아가기</a>
 
