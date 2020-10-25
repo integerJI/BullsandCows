@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+로그인중
+{% endif %}
+<h1>index</h1>
+
+{% for game in games.all %}
+    <a href="{% url 'gameroom' game.id %}">{{ game.game_title }}</a>
+    <p>{{ game.game_status }}</p>
+    <p>{{ game.game_date }}</p>
+{% endfor %}
+
+<a href="{% url 'gamecreate' %}">방만들기</a>
+
+<a href="{% url 'logout' %}">로그아웃</a>
+{% endblock %}
