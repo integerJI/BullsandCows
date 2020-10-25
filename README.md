@@ -8,3 +8,5 @@
  - gameroom create 추가
  - gamenum 추가 (comment)
  - gametrynum 추가 (recomment)
+
+ --- git push test
