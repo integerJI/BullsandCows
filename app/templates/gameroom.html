@@ -38,3 +38,22 @@
 <a href="{% url 'index' %}">돌아가기</a>
 
 {% endblock %}
+
+<!-- <script>
+$.ajax({
+    type: "POST",
+    url: "{% url 'timesave' %}",
+    data: { 'csrfmiddlewaretoken': '{{ csrf_token }}', 'time': time },
+    dataType: "text",
+    success: function (data) {
+        console.log('성공');
+        location.replace("{% url 'index' %}");
+    },
+    error: function (request, status, error) {
+        console.log(time);
+        console.log('실패');
+        console.log(request);
+        console.log(error);
+    }
+}); // END AJAX
+</script> -->
