@@ -1,59 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a>{{ game.game_title }}</a>
-<p>{{ game.game_status }}</p>
-<p>{{ game.game_date }}</p>
 <br>
-
-{% for game in game.game.all %}
-{{game.game_user}}
-{{game.game_num}}
-{% for gametry in game.gameTry.all %}
-<br>
-ㄴ{{gametry.try_game_user}}
-{{gametry.try_game_num}}
-{% endfor %}
-
-<br>
-<hr>
-<form action="{% url 'gametrynum' game.id %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name="try_game_num" id="try_game_num">
-    <button type="submit">입력</button>
-</form>
-<hr>
-<br>
-{% endfor %}
-
-<br>
-<hr>
-<form action="{% url 'gamenum' game.id %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name="game_num" id="game_num">
-    <button type="submit">입력</button>
-</form>
-<hr>
-<br>
-<a href="{% url 'index' %}">돌아가기</a>
-
+<a>방제 : </a>{{ game.game_title }} - <a>{{ game.game_date }}</a><a> {{ game.game_status }}</a>
+<br><br>
 {% endblock %}
-
-<!-- <script>
-$.ajax({
-    type: "POST",
-    url: "{% url 'timesave' %}",
-    data: { 'csrfmiddlewaretoken': '{{ csrf_token }}', 'time': time },
-    dataType: "text",
-    success: function (data) {
-        console.log('성공');
-        location.replace("{% url 'index' %}");
-    },
-    error: function (request, status, error) {
-        console.log(time);
-        console.log('실패');
-        console.log(request);
-        console.log(error);
-    }
-}); // END AJAX
-</script> -->
