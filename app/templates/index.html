@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
-로그인중
-{% endif %}
+
 <h1>index</h1>
 
 <a href="{% url 'gamecreate' %}">방만들기</a>
 
-<a href="{% url 'logout' %}">로그아웃</a>
     
 <br><br><br>
 
