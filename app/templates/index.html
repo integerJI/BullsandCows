@@ -1,19 +1,15 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
 <h1>index</h1>
 
 <a href="{% url 'gamecreate' %}">방만들기</a>
 
-    
-<br><br><br>
+<br><br>
 
 {% for game in games.all %}
-    <a>방제 : </a><a href="{% url 'gameroom' game.id %}">{{ game.game_title }}</a> - <a>{{ game.game_date }}</a><a> {{ game.game_status }}</a>
-    <br><br>
+<a>방제 : </a><a href="{% url 'gameroom' game.id %}">{{ game.game_title }}</a> - <a>{{ game.game_date }}</a><a>
+    {{ game.game_status }}</a>
+<br><br>
 {% endfor %}
-
-
 
 {% endblock %}

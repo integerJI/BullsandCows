@@ -4,4 +4,38 @@
 <br>
 <a>방제 : </a>{{ game.game_title }} - <a>{{ game.game_date }}</a><a> {{ game.game_status }}</a>
 <br><br>
+
+<p>댓글시작</p>
+
+{% for choicenum in game.choice.all %}
+{{choicenum.choice_user}}
+{{choicenum.choice_num}}
+
+
+{% for beatnum in choicenum.beat.all %}
+<br>
+ㄴ{{beatnum.beat_user}}
+{{beatnum.beat_num}}
+{% endfor %}
+
+
+<br>
+<form action="{% url 'beatnum' game.id %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="beat_num" id="beat_num">
+    <button type="submit">입력</button>
+</form>
+
+<br>
+{% endfor %}
+
+<hr>
+초이스넘 입력
+<br>
+    <form action="{% url 'choicenum' game.id %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="choice_num" id="choice_num">
+        <button type="submit">입력</button>
+    </form>
+
 {% endblock %}

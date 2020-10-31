@@ -10,26 +10,26 @@ class GameRomm(models.Model):
     def __str__(self):
         return self.game_title
 
-# class GameNum(models.Model):
-#     game = models.ForeignKey(GameRomm, on_delete=models.CASCADE, null=True, related_name='game')
-#     game_user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-#     game_num = models.IntegerField(default=0, null=False, blank=False)
+class ChoiceNum(models.Model):
+    choice = models.ForeignKey(GameRomm, on_delete=models.CASCADE, null=True, related_name='choice')
+    choice_user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    choice_num = models.IntegerField(default=0, null=False, blank=False)
     
-#     class Meta:
-#         ordering = ['-id']
+    class Meta:
+        ordering = ['-id']
             
-#     def __str__(self):
-#         return '%s - %s' % (self.game_user, self.game_num) 
+    def __str__(self):
+        return '%s - %s' % (self.choice_user, self.choice_num) 
 
 
-# class GameTryNum(models.Model):
-#     try_game = models.ForeignKey(GameNum, on_delete=models.CASCADE, null=True, related_name='gameTry')
-#     try_game_user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-#     try_game_num = models.IntegerField(default=0, null=False, blank=False)
-#     try_game_result = models.CharField(db_column='try 결과', max_length=200, null=False, blank=False)
+class BeatNum(models.Model):
+    beat = models.ForeignKey(ChoiceNum, on_delete=models.CASCADE, null=True, related_name='beat')
+    beat_user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    beat_num = models.IntegerField(default=0, null=False, blank=False)
+    # try_game_result = models.CharField(max_length=200, null=False, blank=False)
     
-#     class Meta:
-#         ordering = ['-id']
+    class Meta:
+        ordering = ['-id']
             
-#     def __str__(self):
-#         return '%s - %s' % (self.try_game_user, self.try_game_num) 
+    def __str__(self):
+        return '%s - %s' % (self.beat_user, self.beat_num) 
