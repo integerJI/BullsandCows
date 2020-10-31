@@ -20,7 +20,7 @@
 
 
 <br>
-<form action="{% url 'beatnum' game.id %}" method="POST">
+<form action="{% url 'beatnum' game.id choicenum.id %}" method="POST">
     {% csrf_token %}
     <input type="text" name="beat_num" id="beat_num">
     <button type="submit">입력</button>

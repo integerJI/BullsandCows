@@ -34,13 +34,10 @@ def choicenum(request, game_id):
 
 
 @login_required
-def beatnum(request, game_id):
+def beatnum(request, game_id, choicenum_id):
     if request.method =='POST':
-        beat = get_object_or_404(ChoiceNum, pk=game_id)
+        beat = get_object_or_404(ChoiceNum, pk=choicenum_id)
         beat_user = User.objects.get(username = request.user.get_username())
         beat_num = request.POST.get('beat_num')
         BeatNum.objects.create(beat=beat, beat_user=beat_user, beat_num=beat_num)
         return redirect('gameroom', game_id)
-
-        # return redirect('gameroom', game_id)
-
