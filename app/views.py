@@ -35,9 +35,33 @@ def choicenum(request, game_id):
 
 @login_required
 def beatnum(request, game_id, choicenum_id):
+    list_choice = []
+    list_beat = []
+    strike = 0
+    ball = 0
+
     if request.method =='POST':
         beat = get_object_or_404(ChoiceNum, pk=choicenum_id)
+
+        str_choice = str(beat)
+        str_choice = str_choice[-4:]
+
+        for i in range(len(str_choice)):
+            list_choice.append(str_choice[i])
+        
+        str_beat = str(request.POST.get('beat_num'))
+
+        for j in range(len(str_beat)):
+            list_beat.append(str_beat[j])
+
+        for k in range(4):
+            if list_choice[k] == list_beat[k]:
+                strike += 1
+            if (list_choice[k] in list_beat) and (list_choice[k] != list_beat[k]):
+                ball += 1
+
         beat_user = User.objects.get(username = request.user.get_username())
         beat_num = request.POST.get('beat_num')
-        BeatNum.objects.create(beat=beat, beat_user=beat_user, beat_num=beat_num)
+        beat_result = strike, ball
+        BeatNum.objects.create(beat=beat, beat_user=beat_user, beat_num=beat_num, beat_result=beat_result)
         return redirect('gameroom', game_id)

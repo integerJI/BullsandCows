@@ -26,7 +26,7 @@ class BeatNum(models.Model):
     beat = models.ForeignKey(ChoiceNum, on_delete=models.CASCADE, null=True, related_name='beat')
     beat_user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     beat_num = models.IntegerField(default=0, null=False, blank=False)
-    # try_game_result = models.CharField(max_length=200, null=False, blank=False)
+    beat_result = models.CharField(max_length=200, null=True, blank=True)
     
     class Meta:
         ordering = ['-id']

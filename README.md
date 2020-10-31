@@ -8,7 +8,14 @@
  - gamenum 추가 (comment)
  - gametrynum 추가 (recomment)
 
+ # 2020.10.29
+ - model 초기화
+
 # 2020.10.31
  - model 재정의
  - gamenum -> ChoiceNum 변경
  - gametrynum -> BeatNum 변경
+
+# 2020.11.01
+ - BeatNum add to beat_result
+ - beat시 결과 추가
