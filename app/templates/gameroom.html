@@ -24,7 +24,7 @@
 <form action="{% url 'beatnum' game.id choicenum.id %}" method="POST">
     {% csrf_token %}
     <input type="text" name="beat_num" id="beat_num">
-    <button type="submit">입력</button>
+    <button type="submit" name="submit_num" id="submit_num">입력</button>
 </form>
 
 <br>
@@ -39,4 +39,14 @@
         <button type="submit">입력</button>
     </form>
 
+<script>
+
+$("#submit_num").click(function () {
+    console.log('a');
+});
+
+
+</script>
+
 {% endblock %}
+

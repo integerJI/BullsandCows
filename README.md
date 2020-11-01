@@ -19,5 +19,8 @@
 # 2020.11.01
  - BeatNum add to beat_result
  - beat시 결과 추가
+ 
  - chat app 추가
  - 실시간 채팅 기능을 활용하기 위한 Test App
+
+ - jQuery 설정
