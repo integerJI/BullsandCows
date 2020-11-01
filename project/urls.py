@@ -8,4 +8,5 @@ urlpatterns = [
     path('', user.views.login, name='login'),
     path('app/', include('app.urls')),
     path('user/', include('user.urls')),
+    path('chat/', include('chat.urls')),
 ]
