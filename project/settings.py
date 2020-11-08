@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,9 +41,6 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'chat.apps.ChatConfig',
 ]
-
-# Channels
-# ASGI_APPLICATION = 'project.routing.application'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
